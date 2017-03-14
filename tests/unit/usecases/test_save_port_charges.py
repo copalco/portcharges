@@ -3,10 +3,10 @@ import json
 import pytest
 
 from portcharges.domain import PortCharge
-from portcharges.usecases import SavePortChargesUseCase
+from portcharges.usecases import SavePortChargesFromJSONUseCase
 
 
-class TestSavePortChargesUseCase:
+class TestSavePortChargesFromJSONUseCase:
 
     def test_saves_port_charges_from_json(
             self, usecase, json_data, saver, port_charges):
@@ -16,7 +16,7 @@ class TestSavePortChargesUseCase:
 
 @pytest.fixture
 def usecase(saver):
-    return SavePortChargesUseCase(charges_saver=saver)
+    return SavePortChargesFromJSONUseCase(charges_saver=saver)
 
 
 @pytest.fixture

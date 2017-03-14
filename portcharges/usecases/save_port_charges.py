@@ -3,7 +3,7 @@ import json
 from portcharges.app.deserializing import PortChargeDeserializer
 
 
-class SavePortChargesUseCase:
+class SavePortChargesFromJSONUseCase:
 
     def __init__(self, charges_saver):
         self._charge_deserializer = PortChargeDeserializer()

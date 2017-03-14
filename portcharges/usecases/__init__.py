@@ -1,5 +1,5 @@
-from .save_port_charges import SavePortChargesUseCase
+from .save_port_charges import SavePortChargesFromJSONUseCase
 
 __all__ = (
-    'SavePortChargesUseCase',
+    'SavePortChargesFromJSONUseCase',
 )
