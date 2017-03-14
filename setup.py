@@ -9,6 +9,9 @@ setup(
     classifiers=(
         'Programming Language :: Python :: 3.5',
     ),
-    install_requires=(),
+    install_requires=(
+        'knot==0.4.0',
+        'pymongo==3.4.0',
+    ),
     zip_safe=False,
 )
