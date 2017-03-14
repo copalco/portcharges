@@ -10,5 +10,6 @@ def setup(container):
 
 def save_charges_usecase(container):
     return SavePortChargesFromJSONUseCase(
+        currency_normalizer=container('app.currency_normalizer'),
         charges_saver=container('gateway.port_charge.saver'),
     )
