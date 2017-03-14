@@ -1,6 +1,9 @@
 import pymongo
 
 from portcharges.mongo import PortChargeSaver
+from portcharges.mongo.data_finder import DataFinder
+from portcharges.mongo.data_updater import PortChargeOutliersUpdater
+from portcharges.mongo.stats_finder import StatsFinder
 
 
 def setup(container):
@@ -15,6 +18,18 @@ def setup(container):
     container.add_service(
         port_charges_collection,
         'mongo.port_charges.collection',
+    )
+    container.add_service(
+        port_data_finder,
+        'mongo.port_charges.finder',
+    )
+    container.add_service(
+        port_data_updater,
+        'mongo.port_charges.updater',
+    )
+    container.add_service(
+        stats_finder,
+        'mongo.port_charges.stats',
     )
     container.add_service(
         port_charge_saver,
@@ -41,5 +56,21 @@ def port_charges_collection(container):
 
 def port_charge_saver(container):
     return PortChargeSaver(
+        collection=container('mongo.port_charges.collection'),
+    )
+
+
+def port_data_finder(container):
+    return DataFinder(collection=container('mongo.port_charges.collection'))
+
+
+def port_data_updater(container):
+    return PortChargeOutliersUpdater(
+        collection=container('mongo.port_charges.collection'),
+    )
+
+
+def stats_finder(container):
+    return StatsFinder(
         collection=container('mongo.port_charges.collection'),
     )
