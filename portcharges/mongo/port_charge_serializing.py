@@ -9,4 +9,5 @@ class PortChargeSerializer:
             'city': port_charge.city,
             'supplier_id': port_charge.supplier_id,
             'value': port_charge.value,
+            'outlier': False,
         }

@@ -22,6 +22,7 @@ class TestPortChartSaver:
                 city='OSL',
                 supplier_id=1,
                 value=3567.34,
+                outlier=False,
             ),
         ]
         assert list(port_charges_collection.find()) == expected_value
