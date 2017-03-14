@@ -12,6 +12,7 @@ setup(
     install_requires=(
         'knot==0.4.0',
         'pymongo==3.4.0',
+        'requests==2.13.0',
     ),
     zip_safe=False,
 )
