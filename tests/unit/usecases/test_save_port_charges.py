@@ -15,8 +15,11 @@ class TestSavePortChargesFromJSONUseCase:
 
 
 @pytest.fixture
-def usecase(saver):
-    return SavePortChargesFromJSONUseCase(charges_saver=saver)
+def usecase(currency_normalizer, saver):
+    return SavePortChargesFromJSONUseCase(
+        currency_normalizer=currency_normalizer,
+        charges_saver=saver,
+    )
 
 
 @pytest.fixture
@@ -50,6 +53,15 @@ def json_data():
 
 
 @pytest.fixture
+def currency_normalizer():
+    class FakeCurrencyNormalizer:
+
+        def normalize(self, currency, value):
+            return round(value / 6.9133, 2)
+    return FakeCurrencyNormalizer()
+
+
+@pytest.fixture
 def saver():
     class SpySaver:
 
@@ -72,27 +84,27 @@ def port_charges():
             country="CN",
             city="AQG",
             supplier_id=35,
-            value=820.0,
+            value=118.61,
         ),
         PortCharge(
             id=None,
             country="CN",
             city="AQG",
             supplier_id=19,
-            value=835.0,
+            value=120.78,
         ),
         PortCharge(
             id=None,
             country="CN",
             city="AQG",
             supplier_id=49,
-            value=600.0,
+            value=86.79,
         ),
         PortCharge(
             id=None,
             country="CN",
             city="AQG",
             supplier_id=54,
-            value=775.0,
+            value=112.10,
         ),
     ]
