@@ -12,7 +12,6 @@ class TestPortChartSaver:
             country='NO',
             city='OSL',
             supplier_id=1,
-            currency='EUR',
             value=3567.34,
         )
         port_charge_id = saver.save(new_port_charge)
@@ -22,7 +21,6 @@ class TestPortChartSaver:
                 country='NO',
                 city='OSL',
                 supplier_id=1,
-                currency='EUR',
                 value=3567.34,
             ),
         ]

@@ -8,7 +8,6 @@ ID = 'test_id'
 COUNTRY = 'NO'
 CITY = 'OSL'
 SUPPLIER_ID = 1
-CURRENCY = 'EUR'
 VALUE = 3567.34
 
 
@@ -19,7 +18,6 @@ class TestPortChargeInit:
         assert port_charge.country == COUNTRY
         assert port_charge.city == CITY
         assert port_charge.supplier_id == SUPPLIER_ID
-        assert port_charge.currency == CURRENCY
         assert port_charge.value == VALUE
 
 
@@ -32,9 +30,8 @@ class TestPortChargeRepr:
             " country='{}',"
             " city='{}',"
             " supplier_id={},"
-            " currency='{}',"
             " value={})"
-        ).format(ID, COUNTRY, CITY, SUPPLIER_ID, CURRENCY, VALUE)
+        ).format(ID, COUNTRY, CITY, SUPPLIER_ID, VALUE)
 
 
 class TestPortChargeEquality:
@@ -45,7 +42,6 @@ class TestPortChargeEquality:
             country=COUNTRY,
             city=CITY,
             supplier_id=SUPPLIER_ID,
-            currency=CURRENCY,
             value=VALUE,
         )
 
@@ -56,7 +52,6 @@ class TestPortChargeEquality:
             ('country', 'PL'),
             ('city', 'GDA'),
             ('supplier_id', 999),
-            ('currency', 'PLN'),
             ('value', 2000.00),
         ),
     )
@@ -76,6 +71,5 @@ def port_charge():
         country=COUNTRY,
         city=CITY,
         supplier_id=SUPPLIER_ID,
-        currency=CURRENCY,
         value=VALUE,
     )

@@ -9,13 +9,11 @@ class PortCharge:
             country: str,
             city: str,
             supplier_id: int,
-            currency: str,
             value: float):
         self.id = id
         self.country = country
         self.city = city
         self.supplier_id = supplier_id
-        self.currency = currency
         self.value = value
 
     def __repr__(self):
@@ -25,7 +23,6 @@ class PortCharge:
             ' country={self.country!r},'
             ' city={self.city!r},'
             ' supplier_id={self.supplier_id!r},'
-            ' currency={self.currency!r},'
             ' value={self.value!r})'
         ).format(self=self)
 
@@ -37,6 +34,5 @@ class PortCharge:
             self.country == other.country,
             self.city == other.city,
             self.supplier_id == other.supplier_id,
-            self.currency == other.currency,
             self.value == other.value,
         ))

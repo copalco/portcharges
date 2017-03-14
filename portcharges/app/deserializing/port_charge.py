@@ -11,7 +11,6 @@ class PortChargeDeserializer:
             country=country,
             city=city,
             supplier_id=port_charge_dict['supplier_id'],
-            currency=port_charge_dict['currency'],
             value=port_charge_dict['value'],
         )
 

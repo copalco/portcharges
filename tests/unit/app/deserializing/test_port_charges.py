@@ -33,6 +33,5 @@ def port_charge():
         country='CN',
         city='AQG',
         supplier_id=35,
-        currency='CNY',
         value=820.0,
     )
